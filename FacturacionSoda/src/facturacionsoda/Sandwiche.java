@@ -21,5 +21,7 @@ public class Sandwiche extends Producto{
     
     public Sandwiche(){}
     
-    public Sandwiche(String nombre){}
+    public Sandwiche(String nombre){
+        this.nombre = nombre;
+    }
 }
