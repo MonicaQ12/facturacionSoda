@@ -16,12 +16,22 @@ import java.util.List;
  * @author Jheron Chacon
  */
 public class Producto {
+    //Atributos privados
+    protected String nombre;
+    protected String mensaje;
+    protected List<Ingrediente> ingredientes = new ArrayList<Ingrediente>();
+    protected double precio;
+    //Constructores
+    public Producto(){
+        this.nombre = "";
+        this.mensaje = "";
+    }
 
-    private String nombre;
-    private String mensaje;
-    private List<Ingrediente> ingredientes = new ArrayList<Ingrediente>();
-    private double precio;
-    
+    public Producto(String nombre) {
+        this.nombre = nombre;
+        this.mensaje = "";
+    }
+    //Setters y Getters
     public double getPrecio(){
         return this.precio;
     }
@@ -75,22 +85,6 @@ public class Producto {
         }
         return new Ingrediente();
     }
-    
-    private boolean rolPermitido(String rolEsperado, Usuario usuario) {
-        Rol rolUsuario = usuario.getRol();
-        String nombreRol = rolUsuario.getNombre();
-        return nombreRol.equals(rolEsperado);
-    }
-    
-    public Producto(){
-        this.nombre = "";
-        this.mensaje = "";
-    }
-
-    public Producto(String nombre) {
-        this.nombre = nombre;
-        this.mensaje = "";
-    }
 
     public String getNombre() {
         return this.nombre;
@@ -108,9 +102,10 @@ public class Producto {
     public String getMensaje(){
         return this.mensaje;
     }
-
-    
-    
-    
-    
+    //Metodos privados de la clase
+    protected boolean rolPermitido(String rolEsperado, Usuario usuario) {
+        Rol rolUsuario = usuario.getRol();
+        String nombreRol = rolUsuario.getNombre();
+        return nombreRol.equals(rolEsperado);
+    }    
 }
