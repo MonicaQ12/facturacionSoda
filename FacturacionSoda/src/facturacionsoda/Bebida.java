@@ -15,11 +15,10 @@ public class Bebida extends Producto {
         this.precio = precio;
         this.tamanio = tamanio;
     }
-
+    
     public Bebida() {
         this.nombre = "";
         this.mensaje = "";
-
     }
 
     public Bebida(String nombre) {
@@ -36,10 +35,6 @@ public class Bebida extends Producto {
         }
     }
 
-    public void setMensaje(String mensaje) {
-        this.mensaje = mensaje;
-    }
-
     public String getCaducidad() {
         return caducidad;
     }
@@ -52,7 +47,7 @@ public class Bebida extends Producto {
         this.mensaje = Mensaje.ACCESO_DENEGADO;
         }
     }
-    
+
     public String getTamanio() {
         return this.tamanio;
     }
