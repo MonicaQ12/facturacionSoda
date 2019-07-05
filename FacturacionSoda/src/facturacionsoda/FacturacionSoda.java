@@ -101,7 +101,7 @@ public class FacturacionSoda {
             switch(opcion){
             case 1:
                 mantenimiento = new MantenimientoBebida();
-                menuSistema((MantenimientoBebida)mantenimiento);
+                mantenimiento.menuMantenimiento();
                 break;
             default:
                 break;
@@ -137,54 +137,5 @@ public class FacturacionSoda {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private static void menuSistema(MantenimientoBebida mantenimiento) {
-        Bebida bebida = null;
-        int codigo = 0;
-        int opcion = 1;
-        while(opcion > 0){
-            opcion = mantenimiento.imprimirMenu();
-            switch(opcion){
-                case 1: //Ver todos
-                    mantenimiento.verProductos();
-                    break;
-                case 2: //Ver uno especifico
-                    codigo = Io.preguntarEntero("Ingrese el código de la Bebida que desea consultar");
-                    mantenimiento.verProducto(codigo);
-                    break;
-                case 3: //Agregar uno nuevo
-                    bebida = new Bebida();
-                    bebida.setId(Io.preguntarEntero("Ingrese el código de la bebida"), usuarioLogueado);
-                    bebida.setNombre(Io.preguntarString("Ingrese el nombre de la bebida"), usuarioLogueado);
-                    bebida.setTamanio(Io.preguntarString("Ingrese el tamaño de la bebeida"), usuarioLogueado);
-                    bebida.setCaducidad(Io.preguntarString("Ingrese la fecha de caducidad de la bebida"), usuarioLogueado);
-                    bebida.setPrecio(Io.preguntarDouble("Ingrese el precio de la bebida"), usuarioLogueado);
-                    mantenimiento.addProducto(bebida);
-                    break;
-                case 4: //Actializar uno existente
-                    codigo = Io.preguntarEntero("Ingrese el código de la Bebida que desea actualizar");
-                    mantenimiento.verProducto(codigo);
-                    bebida = mantenimiento.getBebida(codigo);
-                    bebida.setId(Io.preguntarEntero("Ingrese el código de la bebida"), usuarioLogueado);
-                    bebida.setNombre(Io.preguntarString("Ingrese el nombre de la bebida"), usuarioLogueado);
-                    bebida.setTamanio(Io.preguntarString("Ingrese el tamaño de la bebeida"), usuarioLogueado);
-                    bebida.setCaducidad(Io.preguntarString("Ingrese la fecha de caducidad de la bebida"), usuarioLogueado);
-                    bebida.setPrecio(Io.preguntarDouble("Ingrese el precio de la bebida"), usuarioLogueado);
-                    String respuesta = Io.preguntarString("Desea agregar ingredientes? S/N");
-                    if(respuesta.toLowerCase().equals("s")){
-                        //En esta etapa del proyecto no existe manera de agregar ingredientes a los productos.
-                    }
-                    mantenimiento.updProducto(bebida);
-                    break;
-                case 5:
-                    codigo = Io.preguntarEntero("Ingrese el código de la Bebida que desea eliminar");
-                    mantenimiento.verProducto(codigo);
-                    bebida = mantenimiento.getBebida(codigo);
-                    if(Io.preguntarEntero("Seguro desea eliminar la bebida? 1 = Si, 0 = No")==1)
-                        mantenimiento.delProducto(bebida);
-                    break;
-                default:
-                    break;
-            }
-        }
-    }
+    
 }
