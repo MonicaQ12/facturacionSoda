@@ -7,7 +7,7 @@ import Seguridad.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Bebida extends Soda {
+public class Bebida extends Producto {
 
     private String nombre;
     private String caducidad;
