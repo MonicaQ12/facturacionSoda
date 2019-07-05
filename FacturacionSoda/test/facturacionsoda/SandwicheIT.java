@@ -41,8 +41,8 @@ public class SandwicheIT {
     public void testConstructorSandwiche() {
         // TODO review the generated test code and remove the default call to fail.
         Sandwiche roastBeaf = new Sandwiche("roast beaf");
-        roastBeaf.tipoPan = Sandwiche.BLANCO;
-        String expectedValue = "roast beaf en pan Blanco";
+        roastBeaf.tipoPan = Sandwiche.Panes.BLANCO.name();
+        String expectedValue = " en pan BLANCO";
         String recievedValue = roastBeaf.getNombre() + " en pan " + roastBeaf.tipoPan;
         assertEquals(expectedValue, recievedValue);
     }

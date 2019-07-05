@@ -14,7 +14,7 @@ import java.util.List;
  *
  * @author Jheron Chacon
  */
-public class Menu {
+public class Menu extends Soda implements Printable{
     private List<Producto> productos = new ArrayList<Producto>();
     private Rol cajero = new Rol("Cajero");
     private Rol gerente = new Rol("Gerente");
@@ -44,5 +44,10 @@ public class Menu {
             }
         }
         this.productos.remove(producto);
+    }
+
+    @Override
+    public void print() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

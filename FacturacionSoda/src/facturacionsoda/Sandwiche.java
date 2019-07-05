@@ -9,17 +9,20 @@ package facturacionsoda;
  *
  * @author Jheron Chacon
  */
-public class Sandwiche extends Producto{
+public class Sandwiche extends Producto implements Jsonable{
     
-    public final static String CIABATA = "Ciabata";
-    public final static String INTEGRAL = "Integral";
-    public final static String AJONJOLI = "Ajonjoli";
-    public final static String BLANCO = "Blanco";
-    public final static String CUADRADO_BLANCO = "Cuadrado blanco";
+    public enum Panes{
+        CIABATA, INTEGRAL, AJONJOLI, BLANCO, CUADRADO_BLANCO
+    }
     
     public String tipoPan;
     
     public Sandwiche(){}
     
     public Sandwiche(String nombre){}
+
+    @Override
+    public void printToJson() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
