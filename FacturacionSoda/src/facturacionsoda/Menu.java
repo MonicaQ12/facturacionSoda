@@ -15,9 +15,9 @@ import java.util.List;
  * @author Jheron Chacon
  */
 public class Menu extends Soda implements Printable{
-    private List<Producto> productos = new ArrayList<Producto>();
-    private Rol cajero = new Rol("Cajero");
-    private Rol gerente = new Rol("Gerente");
+    protected List<Producto> productos = new ArrayList<Producto>();
+    protected Rol cajero = new Rol("Cajero");
+    protected Rol gerente = new Rol("Gerente");
 
     public List<Producto> getProductos(Usuario usuario) {
         if(usuario.getRol().getNombre().equals(cajero.getNombre()) ||

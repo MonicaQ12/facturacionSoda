@@ -17,6 +17,7 @@ import java.util.List;
  */
 public class Producto {
     //Atributos privados
+    protected int id;
     protected String nombre;
     protected String mensaje;
     protected List<Ingrediente> ingredientes = new ArrayList<Ingrediente>();
@@ -93,6 +94,18 @@ public class Producto {
     public void setNombre(String nombre, Usuario usuario){
         if(this.rolPermitido(Rol.getGerente(), usuario)){
             this.nombre = nombre;
+            this.mensaje = Mensaje.EXITO;
+        }
+        else
+            this.mensaje = Mensaje.ACCESO_DENEGADO;
+    }
+    public int getId() {
+        return this.id;
+    }
+    
+    public void setId(int id, Usuario usuario){
+        if(this.rolPermitido(Rol.getGerente(), usuario)){
+            this.id = id;
             this.mensaje = Mensaje.EXITO;
         }
         else
