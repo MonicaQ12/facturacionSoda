@@ -18,11 +18,14 @@ public class Sandwiche extends Producto implements Jsonable{
     public String tipoPan;
     
     public Sandwiche(){}
+  
+    public Sandwiche(String nombre){
+        this.nombre = nombre;
+    }
     
-    public Sandwiche(String nombre){}
-
     @Override
     public void printToJson() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
 }
