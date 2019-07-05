@@ -8,6 +8,7 @@ package facturacionsoda;
 import Mensajeria.Mensaje;
 import Seguridad.Rol;
 import Seguridad.Usuario;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -150,6 +151,134 @@ public class ProductoIT {
         
         String mensaje = producto.getMensaje();
         assertEquals(mensaje,Mensaje.NO_ENCONTRADO);
+    }
+
+    /**
+     * Test of getPrecio method, of class Producto.
+     */
+    @Test
+    public void testGetPrecio() {
+        System.out.println("getPrecio");
+        Producto instance = new Producto();
+        double expResult = 10.0;
+        instance.setPrecio(10.0, new Usuario("Patata", new Rol(Rol.getGerente())));
+        double result = instance.getPrecio();
+        assertEquals(expResult, result, 0.0);
+    }
+
+    /**
+     * Test of delIngrediente method, of class Producto.
+     */
+    @Test
+    public void testDelIngrediente() {
+        System.out.println("delIngrediente");
+        Ingrediente ingrediente = null;
+        Usuario usuario = null;
+        Producto instance = new Producto();
+        instance.delIngrediente(ingrediente, usuario);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getIngredientes method, of class Producto.
+     */
+    @Test
+    public void testGetIngredientes() {
+        System.out.println("getIngredientes");
+        Producto instance = new Producto();
+        List<Ingrediente> expResult = null;
+        List<Ingrediente> result = instance.getIngredientes();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getIngrediente method, of class Producto.
+     */
+    @Test
+    public void testGetIngrediente() {
+        System.out.println("getIngrediente");
+        String nombre = "";
+        Producto instance = new Producto();
+        Ingrediente expResult = null;
+        Ingrediente result = instance.getIngrediente(nombre);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getNombre method, of class Producto.
+     */
+    @Test
+    public void testGetNombre() {
+        System.out.println("getNombre");
+        Producto instance = new Producto();
+        String expResult = "";
+        String result = instance.getNombre();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getId method, of class Producto.
+     */
+    @Test
+    public void testGetId() {
+        System.out.println("getId");
+        Producto instance = new Producto();
+        int expResult = 0;
+        int result = instance.getId();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of setId method, of class Producto.
+     */
+    @Test
+    public void testSetId() {
+        System.out.println("setId");
+        int id = 0;
+        Usuario usuario = null;
+        Producto instance = new Producto();
+        instance.setId(id, usuario);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getMensaje method, of class Producto.
+     */
+    @Test
+    public void testGetMensaje() {
+        System.out.println("getMensaje");
+        Producto instance = new Producto();
+        String expResult = "";
+        String result = instance.getMensaje();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of rolPermitido method, of class Producto.
+     */
+    @Test
+    public void testRolPermitido() {
+        System.out.println("rolPermitido");
+        String rolEsperado = "";
+        Usuario usuario = null;
+        Producto instance = new Producto();
+        boolean expResult = false;
+        boolean result = instance.rolPermitido(rolEsperado, usuario);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
     
 }
