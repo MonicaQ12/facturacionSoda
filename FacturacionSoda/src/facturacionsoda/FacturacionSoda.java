@@ -5,6 +5,7 @@
  */
 package facturacionsoda;
 
+import Mensajeria.Mensaje;
 import java.util.List;
 
 /**
@@ -23,6 +24,12 @@ public class FacturacionSoda {
         for(int i = 0; i < productos.size(); i++){
             System.out.println(productos.get(i).getNombre());
         }
+        System.out.println(getMensaje());
+    }
+    
+    private static String getMensaje(){
+        String mensaje = Mensaje.getMensaje();
+        return mensaje;       
     }
     
 }
