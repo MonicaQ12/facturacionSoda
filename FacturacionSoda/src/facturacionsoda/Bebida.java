@@ -5,8 +5,8 @@ import Mensajeria.Mensaje;
 import Seguridad.Rol;
 import Seguridad.Usuario;
 
-public class Bebida extends Producto{
-
+public class Bebida extends Producto {
+    
     private String caducidad;
     private String tamanio;
 
@@ -61,3 +61,4 @@ public class Bebida extends Producto{
         }
     }
 }
+

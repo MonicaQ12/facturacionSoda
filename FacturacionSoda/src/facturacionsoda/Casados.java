@@ -1,67 +1,28 @@
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package facturacionsoda;
 
-import Seguridad.Rol;
-import Seguridad.Usuario;
-import Mensajeria.Mensaje;
-import java.util.List;
-import java.util.ArrayList;
-
+/**
+ *
+ * @author T.YENDY
+ */
 public class Casados extends Producto {
-
-    private String nombre;
-    private double precio;
     private int calorias;
-    private String mensaje;
     private String tipoCasado;
-    private List<Ingrediente> ingrediente = new ArrayList<>();
-
-    public Casados(String nombre) {
-
+    
+    public Casados(){
+        
+    }
+    public Casados(String nombre){
         this.nombre = nombre;
-
     }
-
-    public String getMensaje() {
-        return mensaje;
-    }
-
-    public void addIngrediente(Ingrediente ingrediente, Usuario usuario) {
-        if (this.rolPermitido(Rol.getGerente(), usuario)) {
-            this.ingrediente.add(ingrediente);
-            this.mensaje = Mensaje.EXITO;
-        } else {
-            this.mensaje = Mensaje.ACCESO_DENEGADO;
-        }
-    }
-
-    public void delIngrediente(Ingrediente ingrediente, Usuario usuario) {
-        if (this.rolPermitido(Rol.getGerente(), usuario)) {
-            this.ingrediente.remove(ingrediente);
-            this.mensaje = Mensaje.EXITO;
-
-        } else {
-            this.mensaje = Mensaje.ACCESO_DENEGADO;
-        }
-    }
-
-    public int getCalorias() {
-
+    public int getCalorias(){
         return this.calorias;
     }
-
-    public double getPrecio() {
-        return this.precio;
-    }
-
-    public List<Ingrediente> getIngredientes() {
-
-        return this.ingrediente;
-    }
-
-    public String getTipoCasado() {
-        return this.tipoCasado;
-    }
-
     public void setCalorias(int calorias, Usuario usuario) {
         if (this.rolPermitido(Rol.getGerente(), usuario)) {
             this.calorias = calorias;
@@ -70,17 +31,9 @@ public class Casados extends Producto {
             this.mensaje = Mensaje.ACCESO_DENEGADO;
         }
     }
-
-    public void setPrecio(int precio, Usuario usuario) {
-        if (this.rolPermitido(Rol.getGerente(), usuario)) {
-
-            this.precio = precio;
-            this.mensaje = Mensaje.EXITO;
-        } else {
-            this.mensaje = Mensaje.ACCESO_DENEGADO;
-        }
+    public String getTipoCasado(){
+        return this.tipoCasado;
     }
-
     public void setTipoCasado(String tipo, Usuario usario) {
 
         if (this.rolPermitido(Rol.getGerente(), usario)) {
@@ -118,5 +71,4 @@ public class Casados extends Producto {
             this.mensaje = Mensaje.ACCESO_DENEGADO;
         }
     }
-
 }
