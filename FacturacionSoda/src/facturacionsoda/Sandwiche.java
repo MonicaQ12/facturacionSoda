@@ -11,11 +11,10 @@ package facturacionsoda;
  */
 public class Sandwiche extends Producto{
     
-    public final static String CIABATA = "Ciabata";
-    public final static String INTEGRAL = "Integral";
-    public final static String AJONJOLI = "Ajonjoli";
-    public final static String BLANCO = "Blanco";
-    public final static String CUADRADO_BLANCO = "Cuadrado blanco";
+   public enum Panes
+   {
+       CIABTA, INTEGRAL, AJONJOLI, BLANCO, CUADRADO_BLANCO;
+   }
     
     public String tipoPan;
     

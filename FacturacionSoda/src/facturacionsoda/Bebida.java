@@ -7,12 +7,13 @@ import Seguridad.Usuario;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Bebida extends Soda {
+public class Bebida extends Producto{
 
     private String nombre;
     private String caducidad;
     private double precio;
     private String tamanio;
+    private String mensaje;
     protected List<Ingrediente> ingredientes = new ArrayList<Ingrediente>();
 
     public Bebida(String mensaje, String caducidad, double precio, String tamanio) {
@@ -39,9 +40,9 @@ public class Bebida extends Soda {
     public void setNombreBebida(String nombre, Usuario usuario) {
         if (this.rolPermitido(Rol.getGerente(), usuario)) {
             this.nombre = nombre;
-            this.mensaje = Mensaje.EXITO;
+            this.mensaje = Mensaje.Mensage.EXITO.name();
         } else {
-            this.mensaje = Mensaje.ACCESO_DENEGADO;
+            this.mensaje = Mensaje.Mensage.ACCESO_DENEGADO.name();
         }
     }
 
@@ -60,9 +61,9 @@ public class Bebida extends Soda {
     public void setCaducidad(String caducidad,Usuario usuario) {
         if(this.rolPermitido(Rol.getGerente(), usuario)){
         this.caducidad = caducidad;
-        this.mensaje=Mensaje.EXITO;
+        this.mensaje=Mensaje.Mensage.EXITO.name();
     }else{
-        this.mensaje = Mensaje.ACCESO_DENEGADO;
+        this.mensaje = Mensaje.Mensage.ACCESO_DENEGADO.name();
         }
     }
     
@@ -73,9 +74,9 @@ public class Bebida extends Soda {
     public void setPrecio(double precio, Usuario usuario) {
         if (this.rolPermitido(Rol.getGerente(), usuario)) {
             this.precio = precio;
-            this.mensaje = Mensaje.EXITO;
+            this.mensaje = Mensaje.Mensage.EXITO.name();
         } else {
-            this.mensaje = Mensaje.ACCESO_DENEGADO;
+            this.mensaje = Mensaje.Mensage.ACCESO_DENEGADO.name();
         }
 
     }
@@ -87,9 +88,9 @@ public class Bebida extends Soda {
     public void setTamanio(String tamanio, Usuario usuario) {
         if (this.rolPermitido(Rol.getGerente(), usuario)) {
             this.tamanio = tamanio;
-            this.mensaje = Mensaje.EXITO;
+            this.mensaje = Mensaje.Mensage.EXITO.name();
         } else {
-            this.mensaje = Mensaje.ACCESO_DENEGADO;
+            this.mensaje = Mensaje.Mensage.ACCESO_DENEGADO.name();
         }
     }
     
@@ -103,10 +104,10 @@ public class Bebida extends Soda {
         public void addIngrediente(Ingrediente ingrediente, Usuario usuario){
         if(this.rolPermitido(Rol.getCocinero(),usuario)){
             this.ingredientes.add(ingrediente);
-            this.mensaje = Mensaje.EXITO;
+            this.mensaje = Mensaje.Mensage.EXITO.name();
         }
         else{
-            this.mensaje = Mensaje.ACCESO_DENEGADO;
+            this.mensaje = Mensaje.Mensage.ACCESO_DENEGADO.name();
         }
     }
     
@@ -121,10 +122,10 @@ public class Bebida extends Soda {
                 this.ingredientes.remove(actual);
                 eliminado = true;
             }
-            this.mensaje = eliminado ? Mensaje.EXITO : Mensaje.NO_ENCONTRADO;
+            this.mensaje = eliminado ? Mensaje.Mensage.EXITO.name() : Mensaje.Mensage.NO_ENCONTRADO.name();
         }
         else
-            this.mensaje = Mensaje.ACCESO_DENEGADO;
+            this.mensaje = Mensaje.Mensage.ACCESO_DENEGADO.name();
     }
   
     

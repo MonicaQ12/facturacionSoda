@@ -79,11 +79,11 @@ public class TipoIngrediente1
     
     public String getClasificacion()
     {
-        return this.vegetal ? ClasificacionTipoDeIngrediente.VEGETAL:
-                this.carne ? ClasificacionTipoDeIngrediente.CARNE:
-                this.granos ? ClasificacionTipoDeIngrediente.GRANOS:
-                this.lacteo ? ClasificacionTipoDeIngrediente.LACTEO:
-                this.licor ? ClasificacionTipoDeIngrediente.LICOR:
+        return this.vegetal ? ClasificacionTipoDeIngrediente.Clasificacion.VEGETAL.name():
+                this.carne ? ClasificacionTipoDeIngrediente.Clasificacion.CARNE.name():
+                this.granos ? ClasificacionTipoDeIngrediente.Clasificacion.GRANOS.name():
+                this.lacteo ? ClasificacionTipoDeIngrediente.Clasificacion.LACTEO.name():
+                this.licor ? ClasificacionTipoDeIngrediente.Clasificacion.LICOR.name():
                 null;
     }
 }

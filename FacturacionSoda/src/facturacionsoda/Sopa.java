@@ -16,7 +16,7 @@ public class Sopa extends Producto
     public Sopa()
     {
         super();
-        this.mensaje = Mensaje.EXITO;
+        this.mensaje = Mensaje.Mensage.EXITO.name();
     }
     
     public Sopa(String nombre)
@@ -40,25 +40,25 @@ public class Sopa extends Producto
         if(this.rolPermitido(Rol.getGerente(), usuario))
         {
             this.tamanio = tamanio;
-            this.mensaje = Mensaje.EXITO;
+            this.mensaje = Mensaje.Mensage.EXITO.name();
         }
         else
         {
-            this.mensaje = Mensaje.ACCESO_DENEGADO;
+            this.mensaje = Mensaje.Mensage.ACCESO_DENEGADO.name();
         }
     }
     
     
     public void setServicio(boolean servicio, Usuario usuario)
     {
-        if(this.rolPermitido(Rol.getSalonero(), usuario))
+        if(this.rolPermitido(Rol.getGerente(), usuario))
         {
             this.servicio = servicio;
-            this.mensaje = Mensaje.EXITO;
+            this.mensaje = Mensaje.Mensage.EXITO.name();
         }
         else
         {
-            this.mensaje = Mensaje.ACCESO_DENEGADO;
+            this.mensaje = Mensaje.Mensage.ACCESO_DENEGADO.name();
         }
     }
     
