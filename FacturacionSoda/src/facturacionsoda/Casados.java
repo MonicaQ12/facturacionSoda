@@ -1,74 +1,61 @@
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package facturacionsoda;
 
+import Mensajeria.Mensaje;
+import Seguridad.Rol;
+import Seguridad.Usuario;
+
 /**
- *
- * @author T.YENDY
+ * @author Monica
  */
-public class Casados extends Producto {
+
+public class Casados extends Producto
+{
     private int calorias;
     private String tipoCasado;
     
-    public Casados(){
-        
+    public Casados()
+    {}
+    
+    public Casados(String nombre)
+    {
+        super(nombre);
+        this.mensaje = Mensaje.Mensage.EXITO.name();
     }
-    public Casados(String nombre){
-        this.nombre = nombre;
-    }
-    public int getCalorias(){
+    
+    public int getCalorias()
+    {
         return this.calorias;
     }
-    public void setCalorias(int calorias, Usuario usuario) {
-        if (this.rolPermitido(Rol.getGerente(), usuario)) {
-            this.calorias = calorias;
-            this.mensaje = Mensaje.EXITO;
-        } else {
-            this.mensaje = Mensaje.ACCESO_DENEGADO;
-        }
-    }
-    public String getTipoCasado(){
+    
+    public String getTipoCasado()
+    {
         return this.tipoCasado;
     }
-    public void setTipoCasado(String tipo, Usuario usario) {
-
-        if (this.rolPermitido(Rol.getGerente(), usario)) {
-
-            switch (tipo) {
-                case "Carne en salsa":
-                    this.mensaje = Mensaje.EXITO;
-                    this.tipoCasado = tipo;
-                    break;
-                case "Pollo a la plancha":
-                    this.mensaje = Mensaje.EXITO;
-                    this.tipoCasado = tipo;
-                    break;
-
-                case "Cerdo":
-                    this.mensaje = Mensaje.EXITO;
-                    this.tipoCasado = tipo;
-                    break;
-
-                case "Res":
-                    this.mensaje = Mensaje.EXITO;
-                    this.tipoCasado = tipo;
-                    break;
-
-                case "Pescado":
-                    this.mensaje = Mensaje.EXITO;
-                    this.tipoCasado = tipo;
-                    break;
-
-                default:
-                    this.mensaje = "El casado no se encuentra en el menu";
-
-            }
-        } else {
-            this.mensaje = Mensaje.ACCESO_DENEGADO;
+    
+    public void setCalorias(int calorias, Usuario usuario)
+    {
+        if(this.rolPermitido(Rol.getCocinero(), usuario))
+        {
+            this.calorias = calorias;
+            this.mensaje = Mensaje.Mensage.EXITO.name();
+        }
+        else
+        {
+            this.mensaje = Mensaje.Mensage.ACCESO_DENEGADO.name();
+        }
+    }
+    
+    public void setTipoCasado(String tipoCasado, Usuario usuario)
+    {
+        if(this.rolPermitido(Rol.getCocinero(), usuario))
+        {
+            this.tipoCasado = tipoCasado;
+            this.mensaje = Mensaje.Mensage.EXITO.name();
+        }
+        else
+        {
+            this.mensaje = Mensaje.Mensage.ACCESO_DENEGADO.name();
         }
     }
 }

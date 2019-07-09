@@ -28,7 +28,7 @@ public class FacturacionSoda {
     }
     
     private static String getMensaje(){
-        String mensaje = Mensaje.getMensaje();
+        String mensaje = Mensaje.Mensage.EXITO.name();
         return mensaje;       
     }
     

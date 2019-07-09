@@ -32,17 +32,6 @@ public class Postre extends Producto {
     }
     
     public String getSabor(){
-    return this.sabor;
-    }
-    
-    
-    public void setPrecio(float precio, Usuario usuario){
-        if(this.rolPermitido(Rol.getGerente(),usuario)){
-            this.precio = precio;
-            this.mensaje = Mensaje.EXITO;
-        }
-        else{
-            this.mensaje = Mensaje.ACCESO_DENEGADO;
-        }
+        return this.sabor;
     }
 }
