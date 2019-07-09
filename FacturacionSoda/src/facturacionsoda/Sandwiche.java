@@ -9,8 +9,7 @@ package facturacionsoda;
  *
  * @author Jheron Chacon
  */
-public class Sandwiche extends Producto{
-    
+public class Sandwiche extends Producto implements Jsonable{
    public enum Panes
    {
        CIABTA, INTEGRAL, AJONJOLI, BLANCO, CUADRADO_BLANCO;
@@ -19,6 +18,14 @@ public class Sandwiche extends Producto{
     public String tipoPan;
     
     public Sandwiche(){}
+  
+    public Sandwiche(String nombre){
+        this.nombre = nombre;
+    }
     
-    public Sandwiche(String nombre){}
+    @Override
+    public void printToJson() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }

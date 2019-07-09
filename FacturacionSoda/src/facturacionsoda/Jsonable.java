@@ -3,15 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Mensajeria;
+package facturacionsoda;
 
 /**
  *
  * @author Jheron Chacon
  */
-public abstract class Mensaje {
-    public enum Mensage
-    {
-        EXITO, ACCESO_DENEGADO, NO_ENCONTRADO;
-    }
+public interface Jsonable{
+    public abstract void printToJson();
 }
