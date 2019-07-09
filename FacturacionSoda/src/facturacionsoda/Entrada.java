@@ -1,31 +1,52 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package facturacionsoda;
 
+import Mensajeria.Mensaje;
+import Seguridad.Rol;
+import Seguridad.Usuario;
+
 /**
- *
- * @author T.YENDY
+ * @author Monica
  */
-class Entrada extends Producto{
-    private boolean pequeño;
+
+public class Entrada extends Producto
+{
+    private boolean pequenio;
     private boolean mediana;
     private boolean fria;
     private boolean caliente;
     
-    public Entrada(){
-        
-    }
-    public Entrada(String nombre){
-        this.nombre = nombre;
+    public Entrada()
+    {}
+    
+    public Entrada(String nombre)
+    {
+        super(nombre);
+        this.mensaje = Mensaje.Mensage.EXITO.name();
     }
     
-    public void setTamaño(boolean pequeño){
-        this.pequeño=pequeño;
+    public void setTamanio(boolean pequenio, Usuario usuario)
+    {
+        if(this.rolPermitido(Rol.getGerente(), usuario))
+        {
+            this.pequenio = pequenio;
+            this.mensaje = Mensaje.Mensage.EXITO.name();
+        }
+        else
+        {
+            this.mensaje = Mensaje.Mensage.ACCESO_DENEGADO.name();
+        }
     }
-    public void setTemperatura(boolean frio){
-        this.pequeño=frio;
+    
+    public void setTemperatura(boolean fria, Usuario usuario)
+    {
+        if(this.rolPermitido(Rol.getCocinero(), usuario))
+        {
+            this.fria = fria;
+            this.mensaje = Mensaje.Mensage.EXITO.name();
+        }
+        else
+        {
+            this.mensaje = Mensaje.Mensage.ACCESO_DENEGADO.name();
+        }
     }
 }

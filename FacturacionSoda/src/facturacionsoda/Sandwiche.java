@@ -10,10 +10,10 @@ package facturacionsoda;
  * @author Jheron Chacon
  */
 public class Sandwiche extends Producto implements Jsonable{
-    
-    public enum Panes{
-        CIABATA, INTEGRAL, AJONJOLI, BLANCO, CUADRADO_BLANCO
-    }
+   public enum Panes
+   {
+       CIABTA, INTEGRAL, AJONJOLI, BLANCO, CUADRADO_BLANCO;
+   }
     
     public String tipoPan;
     

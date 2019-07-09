@@ -10,9 +10,8 @@ package Mensajeria;
  * @author Jheron Chacon
  */
 public abstract class Mensaje {
-    public static final String EXITO = "Exito!";
-    public static final String ACCESO_DENEGADO = "Acceso denegado!";
-    public static final String NO_ENCONTRADO = "Elemento no encontrado";
-    
-    public static String getMensaje(){return "Hola";}
+    public enum Mensage
+    {
+        EXITO, ACCESO_DENEGADO, NO_ENCONTRADO;
+    }
 }
