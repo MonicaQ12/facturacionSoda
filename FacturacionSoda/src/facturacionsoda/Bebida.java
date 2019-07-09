@@ -9,11 +9,8 @@ import java.util.List;
 
 public class Bebida extends Producto{
 
-    private String nombre;
     private String caducidad;
-    private double precio;
     private String tamanio;
-    private String mensaje;
     protected List<Ingrediente> ingredientes = new ArrayList<Ingrediente>();
 
     public Bebida(String mensaje, String caducidad, double precio, String tamanio) {
