@@ -13,6 +13,7 @@ public abstract class Mantenimiento extends Menu implements Crudable{
     protected String elemento = "";
     protected int codigo = 0;
     protected int opcion = 0;
+    
     public Mantenimiento(Producto producto){
         this.elemento = producto instanceof Bebida ? "Bebida" :
                 producto instanceof Casados ? "Casados" :

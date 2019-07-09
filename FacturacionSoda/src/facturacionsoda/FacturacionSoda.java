@@ -79,8 +79,8 @@ public class FacturacionSoda {
     private static boolean login(){
         boolean preguntar = true;
         while(preguntar){
-            Io.escribir("Ingrese nombre de usuario (administrador)");
-            String nombre = Io.leerString();
+            String nombre = Io.preguntarString(
+                    "Ingrese nombre de usuario (administrador)");
             for(Usuario usuario : usuarios){
                 if(usuario.getNombre().equals(nombre)){
                     usuarioLogueado = usuario;

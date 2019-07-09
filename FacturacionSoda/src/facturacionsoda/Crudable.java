@@ -10,9 +10,9 @@ package facturacionsoda;
  * @author Jheron Chacon
  */
 public interface Crudable {
-    public abstract void verProductos();
-    public abstract void verProducto(int id);
-    public abstract void addProducto(Producto producto);
-    public abstract void updProducto(Producto producto);
-    public abstract void delProducto(Producto producto);
+    public abstract void selElements();
+    public abstract void selElement(int id);
+    public abstract void addElement(Producto producto);
+    public abstract void updElement(Producto producto);
+    public abstract void delElement(Producto producto);
 }

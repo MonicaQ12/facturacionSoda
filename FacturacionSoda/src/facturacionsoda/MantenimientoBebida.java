@@ -19,7 +19,8 @@ public class MantenimientoBebida extends Mantenimiento {
     
     public Bebida getBebida(int id){
         for(Producto producto : this.productos){
-            if(producto.getId()==id){
+            if(producto.getId()==id &&
+                    producto instanceof Bebida){
                 return (Bebida)producto;
             }
         }
@@ -27,7 +28,7 @@ public class MantenimientoBebida extends Mantenimiento {
     }
 
     @Override
-    public void verProductos() {
+    public void selElements() {
         for(Producto producto : this.productos){
             if(producto instanceof Bebida){
                 this.imprimirElemento(producto);
@@ -36,7 +37,7 @@ public class MantenimientoBebida extends Mantenimiento {
     }
 
     @Override
-    public void verProducto(int id) {
+    public void selElement(int id) {
         for(Producto producto : this.productos){
             if(producto instanceof Bebida){
                 if(producto.getId()==id){
@@ -47,7 +48,7 @@ public class MantenimientoBebida extends Mantenimiento {
     }
 
     @Override
-    public void addProducto(Producto producto) {
+    public void addElement(Producto producto) {
         if(producto instanceof Bebida){
             Bebida bebida = (Bebida)producto;
             this.productos.add(bebida);
@@ -55,7 +56,7 @@ public class MantenimientoBebida extends Mantenimiento {
     }
 
     @Override
-    public void updProducto(Producto producto) {
+    public void updElement(Producto producto) {
         if(producto instanceof Bebida){
             for(Producto buscado : this.productos){
                 if(buscado.getId()==producto.getId()){
@@ -67,7 +68,7 @@ public class MantenimientoBebida extends Mantenimiento {
     }
 
     @Override
-    public void delProducto(Producto producto) {
+    public void delElement(Producto producto) {
         if(producto instanceof Bebida){
             this.productos.remove(producto);
         }
@@ -92,11 +93,11 @@ public class MantenimientoBebida extends Mantenimiento {
             opcion = this.imprimirMenu();
             switch(opcion){
                 case 1: //Ver todos
-                    this.verProductos();
+                    this.selElements();
                     break;
                 case 2: //Ver uno especifico
                     codigo = Io.preguntarEntero("Ingrese el código de la Bebida que desea consultar");
-                    this.verProducto(codigo);
+                    this.selElement(codigo);
                     break;
                 case 3: //Agregar uno nuevo
                     bebida = new Bebida();
@@ -109,7 +110,7 @@ public class MantenimientoBebida extends Mantenimiento {
                     break;
                 case 4: //Actializar uno existente
                     codigo = Io.preguntarEntero("Ingrese el código de la Bebida que desea actualizar");
-                    this.verProducto(codigo);
+                    this.selElement(codigo);
                     bebida = this.getBebida(codigo);
                     bebida.setId(Io.preguntarEntero("Ingrese el código de la bebida"), usuarioLogueado);
                     bebida.setNombre(Io.preguntarString("Ingrese el nombre de la bebida"), usuarioLogueado);
@@ -120,14 +121,14 @@ public class MantenimientoBebida extends Mantenimiento {
                     if(respuesta.toLowerCase().equals("s")){
                         //En esta etapa del proyecto no existe manera de agregar ingredientes a los productos.
                     }
-                    this.updProducto(bebida);
+                    this.updElement(bebida);
                     break;
                 case 5:
                     codigo = Io.preguntarEntero("Ingrese el código de la Bebida que desea eliminar");
-                    this.verProducto(codigo);
+                    this.selElement(codigo);
                     bebida = this.getBebida(codigo);
                     if(Io.preguntarEntero("Seguro desea eliminar la bebida? 1 = Si, 0 = No")==1)
-                        this.delProducto(bebida);
+                        this.delElement(bebida);
                     break;
                 default:
                     break;
